@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"></properties>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+
+    <typeAliases>
+       <!-- <typeAlias type="com.plife.pojo.Role" alias="role" />-->
+        <package name="com.plife.pojo" />
+    </typeAliases>
+
+
+<typeHandlers>
+    <typeHandler handler="com.plife.typeHandler.TestStringTypeHandler" javaType="string" jdbcType="VARCHAR" />
+</typeHandlers>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+  <!--  <mapper url="E:\ideaword\moban\plife\test\src\main\java\com\plife\dao\mapper\RoleMapper.xml"/>-->
+  <!-- <mapper resource="com/plife/dao/mapper/RoleMapper.xml"/>-->
+     <!-- <mapper class="com.plife.dao.RoleDao"/>-->
+        <!--<package name="com.plife.dao" />-->
+
+        <mapper resource="com/plife/dao/mapper/RoleMapper.xml"/>
+        <mapper resource="com/plife/dao/mapper/StudentMapper.xml"/>
+        <mapper resource="com/plife/dao/mapper/SelfCardMapper.xml"/>
+
+    </mappers>
+</configuration>

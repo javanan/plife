@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plife.dao.RoleDao">
+
+    <resultMap id="roleMap" type="role">
+
+        <result jdbcType="VARCHAR" javaType="string" property="note" column="note" />
+    </resultMap>
+    <sql id="test" >
+        SELECT id,role_name AS  roleName,note FROM role
+    </sql>
+
+    <select id="sqltest" resultMap="roleMap" >
+        <include refid="test" /> WHERE note=${note}
+    </select>
+
+
+    <select id="getRole" parameterType="long" resultType="com.plife.pojo.Role">
+        select id,role_name as roleName,note from role where id = #{id}
+    </select>
+
+    <insert id="addRole" parameterType="role" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO role (id,role_name,note) VALUES (#{id},#{roleName},#{note})
+    </insert>
+
+
+
+    <select id="typeHandlerTest" parameterType="string" resultMap="roleMap">
+        SELECT note FROM role WHERE note=#{note}
+    </select>
+
+    <select id="roleNameCount" parameterType="string" resultType="int">
+        SELECT count(1) FROM role WHERE role_name LIKE concat (#{name},'%')
+    </select>
+
+    <select id="getRoleById" parameterType="long" resultType="role">
+        SELECT note FROM role where id=#{id}
+    </select>
+
+    <select id="parameMap" resultMap="roleMap" parameterType="map">
+        SELECT * FROM role WHERE note=#{note} OR role_name=#{name}
+    </select>
+</mapper>
