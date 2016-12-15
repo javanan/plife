@@ -24,16 +24,21 @@
         <processorPath useClasspath="true" />
         <module name="base" />
         <module name="nlog" />
-        <module name="sys" />
+        <module name="sys-api" />
+        <module name="sys-server" />
         <module name="test" />
         <module name="web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="base" target="1.5" />
       <module name="nlog" target="1.5" />
       <module name="plife" target="1.5" />
+      <module name="plife-sys-service" target="1.5" />
       <module name="sys" target="1.5" />
+      <module name="sys-api" target="1.5" />
+      <module name="sys-server" target="1.5" />
+      <module name="sys-service" target="1.5" />
       <module name="test" target="1.5" />
       <module name="web" target="1.5" />
     </bytecodeTargetLevel>

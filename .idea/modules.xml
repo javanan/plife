@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/nlog/nlog.iml" filepath="$PROJECT_DIR$/nlog/nlog.iml" />
       <module fileurl="file://$PROJECT_DIR$/plife.iml" filepath="$PROJECT_DIR$/plife.iml" />
       <module fileurl="file://$PROJECT_DIR$/sys/sys.iml" filepath="$PROJECT_DIR$/sys/sys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-api/sys-api.iml" filepath="$PROJECT_DIR$/sys-api/sys-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-server/sys-server.iml" filepath="$PROJECT_DIR$/sys-server/sys-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>

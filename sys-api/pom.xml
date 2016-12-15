@@ -9,19 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>plife-sys</artifactId>
-    <packaging>pom</packaging>
-
+    <artifactId>plife-sys-api</artifactId>
 
     <dependencies>
-
-
         <dependency>
             <groupId>plife</groupId>
-            <artifactId>plife-sys-api</artifactId>
+            <artifactId>plife-base</artifactId>
             <version>${plife-version}</version>
         </dependency>
-
     </dependencies>
 
 </project>
