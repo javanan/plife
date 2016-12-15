@@ -19,7 +19,7 @@
         <dependency>
             <groupId>plife</groupId>
             <artifactId>plife-sys-api</artifactId>
-            <version>${plife-version}</version>
+
         </dependency>
 
     </dependencies>

@@ -18,13 +18,11 @@
         <dependency>
             <groupId>plife</groupId>
             <artifactId>plife-sys</artifactId>
-            <version>${plife-version}</version>
         </dependency>
         <!--dubbo中 sys做消费者，server做服务者 分开部署-->
         <dependency>
             <groupId>plife</groupId>
             <artifactId>plife-sys-service</artifactId>
-            <version>${plife-version}</version>
         </dependency>
 
 <!--        <dependency>

@@ -15,7 +15,7 @@
         <dependency>
             <groupId>plife</groupId>
             <artifactId>plife-base</artifactId>
-            <version>${plife-version}</version>
+
         </dependency>
     </dependencies>
 
