@@ -15,11 +15,9 @@
 
     <dependencies>
 
-
         <dependency>
             <groupId>plife</groupId>
             <artifactId>plife-sys-api</artifactId>
-
         </dependency>
 
     </dependencies>

@@ -1,6 +1,8 @@
 package com.plife.sys.service;
 
 import com.plife.sys.pojo.SysUser;
+import org.apache.shiro.session.mgt.eis.SessionDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by chenjianan on 2016/12/13-19:46.
@@ -9,6 +11,7 @@ import com.plife.sys.pojo.SysUser;
  */
 public interface SysUserService {
 
+
     /**
      * 根据用户id获取用户
      * @param id
@@ -16,4 +19,10 @@ public interface SysUserService {
      */
     public SysUser fetch(Long id);
 
+    /**
+     * 根据登录名获取用户
+     * @param loginName
+     * @return
+     */
+    public SysUser getUserByLoginName(String loginName);
 }

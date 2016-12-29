@@ -9,7 +9,7 @@
     <description>Spring MVC Configuration</description>
 
     <!-- 加载配置属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:db.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:mvc.properties"/>
 
 
     <!--<context:component-scan base-package="com.plife.*" />-->
@@ -104,8 +104,8 @@
     <!-- 定义视图文件解析 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="1"/>
-        <property name="prefix" value="${web.view.prefix}"/>
-        <property name="suffix" value="${web.view.suffix}"/>
+        <property name="prefix" value="${mvc.view.prefix}"/>
+        <property name="suffix" value="${mvc.view.suffix}"/>
     </bean>
 
     <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
@@ -115,7 +115,7 @@
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
 
     <!-- 定义无Controller的path<->view直接映射 -->
-    <mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>
+    <mvc:view-controller path="/" view-name="redirect:${mvc.view.index}"/>
 
 
 </beans>

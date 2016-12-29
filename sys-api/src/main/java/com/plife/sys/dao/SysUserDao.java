@@ -11,5 +11,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public interface SysUserDao {
+
     public SysUser fetch(Long id);
+
+    /**
+     * 根据登录名称查询用户
+     * @param sysUser
+     * @return
+     */
+    public SysUser getByLoginName(SysUser sysUser);
 }

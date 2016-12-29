@@ -9,6 +9,8 @@
           <element id="module-output" name="sys" />
           <element id="module-output" name="base" />
           <element id="module-output" name="test" />
+          <element id="module-output" name="sys-api" />
+          <element id="module-output" name="sys-server" />
         </element>
       </element>
     </root>
