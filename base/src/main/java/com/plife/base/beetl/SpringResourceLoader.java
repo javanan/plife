@@ -20,7 +20,7 @@ import java.util.Map;
  * 基于Spring Resource API语法的Beetl ResourceLoader实现<br>
  * <strong>本资源加载器应作为Spring Bean创建，注入org.beetl.ext.spring.BeetlGroupUtilConfiguration使用</strong><br>
  *
- * @author Chen Rui
+ * @author --
  */
 public class SpringResourceLoader implements ResourceLoader, ApplicationContextAware {
     /**

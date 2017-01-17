@@ -9,7 +9,7 @@ import java.io.*;
 /**
  * 基于Spring Resource API语法的Beetl Resource实现
  *
- * @author Chen Rui
+ * @author --
  */
 public class SpringResource extends Resource {
     /**

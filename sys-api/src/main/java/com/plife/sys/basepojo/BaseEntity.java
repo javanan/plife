@@ -24,7 +24,7 @@ public abstract class BaseEntity<T> implements Serializable {
 	/**
 	 * 实体编号（唯一标识）
 	 */
-	protected String id;
+	protected Long id;
 	
 
 	
@@ -43,22 +43,19 @@ public abstract class BaseEntity<T> implements Serializable {
 		
 	}
 	
-	public BaseEntity(String id) {
+	public BaseEntity(Long id) {
 		this();
 		this.id = id;
 	}
 
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-
-
 
 	@JsonIgnore
 	@XmlTransient

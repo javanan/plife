@@ -79,7 +79,7 @@ public class SysUser extends DataEntity<SysUser>{
     }
 
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -246,12 +246,10 @@ public class SysUser extends DataEntity<SysUser>{
         return isAdmin(this.id);
     }
 
-    public static boolean isAdmin(String id){
-        return id != null && "1".equals(id);
+    public static boolean isAdmin(Long id){
+        return id==1L;
+       // return id != null && "1".equals(id);
     }
 
-    @Override
-    public String toString() {
-        return id;
-    }
+
 }
