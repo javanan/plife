@@ -108,11 +108,16 @@
         <property name="suffix" value="${mvc.view.suffix}"/>
     </bean>
 
+
+
+    <!--在SpringMVC3.0之前使用 静态资源映射 -->
+   <!-- <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+    <mvc:resources mapping="/assets/**" location="/assets/" cache-period="31536000"/>-->
+
+    <!--在SpringMVC3.0之后推荐使用  静态资源访问 -->
     <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
     <mvc:default-servlet-handler/>
 
-    <!-- 静态资源映射 -->
-    <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
 
     <!-- 定义无Controller的path<->view直接映射 -->
     <mvc:view-controller path="/" view-name="redirect:${mvc.view.index}"/>
