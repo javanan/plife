@@ -14,7 +14,7 @@
 	<bean name="shiroFilterChainDefinitions" class="java.lang.String">
 		<constructor-arg>
 			<value>
-				/static/** = anon
+				/assets/** = anon
 				/userfiles/** = anon
 				${adminPath}/cas = cas
 				${adminPath}/login = authc
@@ -32,7 +32,7 @@
 		<property name="securityManager" ref="securityManager" /><!-- 
 		<property name="loginUrl" value="${cas.server.url}?service=${cas.project.url}${adminPath}/cas" /> -->
 		<property name="loginUrl" value="${adminPath}/login" />
-		<property name="successUrl" value="${adminPath}?login" />
+		<property name="successUrl" value="${adminPath}?success" />
 		<property name="filters">
 			<map>
 				<entry key="cas" value-ref="casFilter"/>
@@ -80,7 +80,7 @@
 	<!-- 指定本系统SESSIONID, 默认为: JSESSIONID 问题: 与SERVLET容器名冲突, 如JETTY, TOMCAT 等默认JSESSIONID,
 		当跳出SHIRO SERVLET时如ERROR-PAGE容器会为JSESSIONID重新分配值导致登录会话丢失! -->
 	<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-		<constructor-arg name="name" value="jeesite.session.id"/>
+		<constructor-arg name="name" value="plife.session.id"/>
 	</bean>
 
 	<!-- 自定义Session存储容器 -->
