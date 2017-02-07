@@ -31,14 +31,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="base" target="1.8" />
-      <module name="nlog" target="1.8" />
-      <module name="plife" target="1.8" />
-      <module name="sys" target="1.8" />
-      <module name="sys-api" target="1.8" />
-      <module name="sys-server" target="1.8" />
-      <module name="test" target="1.8" />
-      <module name="web" target="1.8" />
+      <module name="base" target="1.5" />
+      <module name="nlog" target="1.5" />
+      <module name="plife" target="1.5" />
+      <module name="sys" target="1.5" />
+      <module name="sys-api" target="1.5" />
+      <module name="sys-server" target="1.5" />
+      <module name="test" target="1.5" />
+      <module name="web" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -231,7 +231,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 
         private static final long serialVersionUID = 1L;
 
-        private String id; // 编号
+        private Long id; // 编号
         private String loginName; // 登录名
         private String name; // 姓名
         private boolean mobileLogin; // 是否手机登录
@@ -245,9 +245,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
             this.mobileLogin = mobileLogin;
         }
 
-        public String getId() {
-            return id;
-        }
+
 
         public String getLoginName() {
             return loginName;
@@ -280,10 +278,12 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
             }
         }
 
-        @Override
-        public String toString() {
+        public Long getId() {
             return id;
         }
 
+        public void setId(Long id) {
+            this.id = id;
+        }
     }
 }

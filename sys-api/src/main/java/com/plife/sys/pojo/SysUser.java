@@ -51,11 +51,11 @@ public class SysUser extends DataEntity<SysUser>{
         this.loginFlag = Global.YES;
     }
 
-    public SysUser(String id){
+    public SysUser(Long id){
         super(id);
     }
 
-    public SysUser(String id, String loginName){
+    public SysUser(Long id, String loginName){
         super(id);
         this.loginName = loginName;
     }
