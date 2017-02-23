@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>plife</groupId>
-    <artifactId>plife</artifactId>
+    <groupId>jlife</groupId>
+    <artifactId>jlife</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <!--系统版本-->
-        <plife-version>1.0-SNAPSHOT</plife-version>
+        <jlife-version>1.0-SNAPSHOT</jlife-version>
         <!--数据库连接池druid版本-->
         <druid-version>1.0.26</druid-version>
         <!--mysql连接版本-->
@@ -56,45 +56,45 @@
         <dependencies>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-web</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-web</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-test</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-test</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-base</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-base</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-nlog</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-nlog</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-sys-api</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-sys-api</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-sys-service</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-sys-service</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
             <dependency>
-                <groupId>plife</groupId>
-                <artifactId>plife-sys</artifactId>
-                <version>${plife-version}</version>
+                <groupId>jlife</groupId>
+                <artifactId>jlife-sys</artifactId>
+                <version>${jlife-version}</version>
             </dependency>
 
         </dependencies>

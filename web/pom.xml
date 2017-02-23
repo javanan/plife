@@ -3,32 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>plife</artifactId>
-        <groupId>plife</groupId>
+        <artifactId>jlife</artifactId>
+        <groupId>jlife</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
-    <artifactId>plife-web</artifactId>
+    <artifactId>jlife-web</artifactId>
 
 
 
     <dependencies>
 
         <dependency>
-            <groupId>plife</groupId>
-            <artifactId>plife-sys</artifactId>
+            <groupId>jlife</groupId>
+            <artifactId>jlife-sys</artifactId>
         </dependency>
         <!--dubbo中 sys做消费者，server做服务者 分开部署-->
         <dependency>
-            <groupId>plife</groupId>
-            <artifactId>plife-sys-service</artifactId>
+            <groupId>jlife</groupId>
+            <artifactId>jlife-sys-service</artifactId>
         </dependency>
 
 <!--        <dependency>
-            <groupId>plife</groupId>
+            <groupId>jlife</groupId>
             <artifactId>test</artifactId>
-            <version>${plife-version}</version>
+            <version>${jlife-version}</version>
         </dependency>-->
     </dependencies>
 </project>

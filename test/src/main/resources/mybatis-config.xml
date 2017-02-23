@@ -9,13 +9,13 @@
     </settings>
 
     <typeAliases>
-       <!-- <typeAlias type="com.plife.pojo.Role" alias="role" />-->
-        <package name="com.plife.pojo" />
+       <!-- <typeAlias type="com.jlife.pojo.Role" alias="role" />-->
+        <package name="com.jlife.pojo" />
     </typeAliases>
 
 
 <typeHandlers>
-    <typeHandler handler="com.plife.typeHandler.TestStringTypeHandler" javaType="string" jdbcType="VARCHAR" />
+    <typeHandler handler="com.jlife.typeHandler.TestStringTypeHandler" javaType="string" jdbcType="VARCHAR" />
 </typeHandlers>
 
 
@@ -31,14 +31,14 @@
         </environment>
     </environments>
     <mappers>
-  <!--  <mapper url="E:\ideaword\moban\plife\test\src\main\java\com\plife\dao\mapper\RoleMapper.xml"/>-->
-  <!-- <mapper resource="com/plife/dao/mapper/RoleMapper.xml"/>-->
-     <!-- <mapper class="com.plife.dao.RoleDao"/>-->
-        <!--<package name="com.plife.dao" />-->
+  <!--  <mapper url="E:\ideaword\moban\jlife\test\src\main\java\com\jlife\dao\mapper\RoleMapper.xml"/>-->
+  <!-- <mapper resource="com/jlife/dao/mapper/RoleMapper.xml"/>-->
+     <!-- <mapper class="com.jlife.dao.RoleDao"/>-->
+        <!--<package name="com.jlife.dao" />-->
 
-        <mapper resource="com/plife/dao/mapper/RoleMapper.xml"/>
-        <mapper resource="com/plife/dao/mapper/StudentMapper.xml"/>
-        <mapper resource="com/plife/dao/mapper/SelfCardMapper.xml"/>
+        <mapper resource="com/jlife/dao/mapper/RoleMapper.xml"/>
+        <mapper resource="com/jlife/dao/mapper/StudentMapper.xml"/>
+        <mapper resource="com/jlife/dao/mapper/SelfCardMapper.xml"/>
 
     </mappers>
 </configuration>

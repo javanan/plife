@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <display-name>plife</display-name>
+    <display-name>jlife</display-name>
 
     <context-param>
         <param-name>spring.profiles.active</param-name>
@@ -18,7 +18,7 @@
 
     <!-- Spring监听器 -->
    <listener>
-        <listener-class>com.plife.base.listener.WebContextListener</listener-class>
+        <listener-class>com.jlife.base.listener.WebContextListener</listener-class>
     </listener>
     <!-- 防止Spring内存溢出监听器 -->
     <listener>
@@ -30,7 +30,7 @@
 
     <filter>
         <filter-name>initFilter</filter-name>
-        <filter-class>com.plife.base.filter.InitFilter</filter-class>
+        <filter-class>com.jlife.base.filter.InitFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>initFilter</filter-name>
@@ -87,7 +87,7 @@
     <!-- Validate code -->
     <servlet>
         <servlet-name>ValidateCodeServlet</servlet-name>
-        <servlet-class>com.plife.base.servlet.ValidateCodeServlet</servlet-class>
+        <servlet-class>com.jlife.base.servlet.ValidateCodeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ValidateCodeServlet</servlet-name>

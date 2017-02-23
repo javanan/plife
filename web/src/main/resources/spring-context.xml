@@ -15,24 +15,24 @@
 	<description>Spring Configuration</description>
 
 
-	<!-- 加载应用属性实例，可通过  @Value("#{PLIFE['jdbc.driver']}") String jdbcDriver 方式引用 -->
-    <util:properties id="PLIFE" location="classpath:plife.properties" local-override="true"/>
+	<!-- 加载应用属性实例，可通过  @Value("#{jlife['jdbc.driver']}") String jdbcDriver 方式引用 -->
+    <util:properties id="jlife" location="classpath:jlife.properties" local-override="true"/>
 
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <context:component-scan base-package="com.plife">
+    <context:component-scan base-package="com.jlife">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
     </context:component-scan>
 
 
 
-	<bean id="setup" class="com.plife.base.init.Setup"></bean>
-	<bean id="installBean" class="com.plife.base.init.InstallBean"></bean>
+	<bean id="setup" class="com.jlife.base.init.Setup"></bean>
+	<bean id="installBean" class="com.jlife.base.init.InstallBean"></bean>
 
     <!-- MyBatis begin -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.plife"/>
+        <property name="typeAliasesPackage" value="com.jlife"/>
   <!--      <property name="typeAliasesSuperType" value="com.thinkgem.jeesite.common.persistence.BaseEntity"/>-->
         <property name="mapperLocations" value="classpath:/mappings/*.xml"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
@@ -41,7 +41,7 @@
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="com.plife.*.dao"/>
+        <property name="basePackage" value="com.jlife.*.dao"/>
     </bean>
     
     <!-- 定义事务 -->
