@@ -1,8 +1,8 @@
-package com.plife.base.config;
+package com.jlife.base.config;
 
 import com.google.common.collect.Maps;
-import com.plife.base.utils.PropertiesLoader;
-import com.plife.base.utils.StringUtils;
+import com.jlife.base.utils.StringUtils;
+import com.jlife.base.utils.PropertiesLoader;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import java.io.File;
@@ -30,7 +30,7 @@ public class Global {
     /**
      * 属性文件加载对象
      */
-    private static PropertiesLoader loader = new PropertiesLoader("plife.properties","mvc.properties");
+    private static PropertiesLoader loader = new PropertiesLoader("jlife.properties","mvc.properties");
 
     /**
      * 显示/隐藏

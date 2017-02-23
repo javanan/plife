@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2005-2012 springside.org.cn
  */
-package com.plife.base.beanvalidator;
+package com.jlife.base.beanvalidator;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2005-2012 springside.org.cn
  */
-package com.plife.base.mapper;
+package com.jlife.base.mapper;
 
 import com.google.common.collect.Lists;
 import org.dozer.DozerBeanMapper;

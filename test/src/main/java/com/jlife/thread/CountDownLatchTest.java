@@ -1,4 +1,4 @@
-package com.plife.thread;
+package com.jlife.thread;
 
 import java.util.concurrent.CountDownLatch;
 

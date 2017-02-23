@@ -1,14 +1,10 @@
-package com.plife.test;
+package com.jlife.test;
 
 import com.alibaba.fastjson.JSON;
-import com.plife.dao.RoleDao;
-import com.plife.dao.StudentDao;
-import com.plife.pojo.Role;
-import com.plife.pojo.Student;
-import com.plife.utils.SqlSessionFactoryUtil;
+import com.jlife.dao.StudentDao;
+import com.jlife.pojo.Student;
+import com.jlife.utils.SqlSessionFactoryUtil;
 import org.apache.ibatis.session.SqlSession;
-
-import java.util.List;
 
 import static java.lang.Thread.sleep;
 

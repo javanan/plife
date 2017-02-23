@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="base" />
         <module name="nlog" />
+        <module name="sys" />
         <module name="sys-api" />
         <module name="sys-server" />
         <module name="test" />
@@ -32,6 +33,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="base" target="1.5" />
+      <module name="jlife" target="1.5" />
       <module name="nlog" target="1.5" />
       <module name="plife" target="1.5" />
       <module name="sys" target="1.5" />

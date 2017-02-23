@@ -1,14 +1,14 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.plife.base.session;
+package com.jlife.base.session;
 
 import com.google.common.collect.Sets;
 
-import com.plife.base.config.Global;
-import com.plife.base.utils.DateUtils;
-import com.plife.base.utils.StringUtils;
-import com.plife.base.web.Servlets;
+import com.jlife.base.config.Global;
+import com.jlife.base.utils.DateUtils;
+import com.jlife.base.utils.StringUtils;
+import com.jlife.base.web.Servlets;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;

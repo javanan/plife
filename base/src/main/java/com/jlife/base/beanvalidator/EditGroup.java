@@ -1,4 +1,4 @@
-package com.plife.base.beanvalidator;
+package com.jlife.base.beanvalidator;
 
 /**
  * 编辑Bena验证组

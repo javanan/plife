@@ -1,4 +1,4 @@
-package com.plife.base.beanvalidator;
+package com.jlife.base.beanvalidator;
 
 /**
  * 添加Bean验证组

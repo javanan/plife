@@ -1,7 +1,7 @@
-package com.plife.base.filter;
+package com.jlife.base.filter;
 
 
-import com.plife.base.utils.StringUtils;
+import com.jlife.base.utils.StringUtils;
 
 import javax.servlet.*;
 

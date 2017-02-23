@@ -1,10 +1,10 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.plife.sys.security;
+package com.jlife.sys.security;
 
 
-import com.plife.base.utils.StringUtils;
+import com.jlife.base.utils.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
