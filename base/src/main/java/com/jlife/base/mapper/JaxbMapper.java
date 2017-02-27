@@ -4,9 +4,9 @@
 package com.jlife.base.mapper;
 
 
-import com.jlife.base.utils.Exceptions;
-import com.jlife.base.utils.Reflections;
-import com.jlife.base.utils.StringUtils;
+import com.jlife.base.util.Exceptions;
+import com.jlife.base.util.Reflections;
+import com.jlife.base.util.StringUtils;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.util.Assert;
 

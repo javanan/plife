@@ -5,7 +5,7 @@ package com.jlife.base.web;
 
 
 import com.jlife.base.mapper.JsonMapper;
-import com.jlife.base.utils.DateUtils;
+import com.jlife.base.util.DateUtils;
 import com.jlife.base.beanvalidator.BeanValidators;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -46,7 +46,12 @@ public abstract class BaseController {
 	 */
 	@Value("${adminPath}")
 	protected String adminPath;
-	
+	/**
+	 * 登录成功后的路径
+	 */
+	@Value("${successUrl}")
+	protected String successUrl;
+
 	/**
 	 * 前端基础路径
 	 */

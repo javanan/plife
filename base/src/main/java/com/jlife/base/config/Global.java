@@ -1,8 +1,8 @@
 package com.jlife.base.config;
 
 import com.google.common.collect.Maps;
-import com.jlife.base.utils.StringUtils;
-import com.jlife.base.utils.PropertiesLoader;
+import com.jlife.base.util.StringUtils;
+import com.jlife.base.util.PropertiesLoader;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import java.io.File;
@@ -17,6 +17,8 @@ import java.util.Map;
  * Describe: 系统全局变量配置
  */
 public class Global {
+
+
     /**
      * 当前对象实例
      */

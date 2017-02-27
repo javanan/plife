@@ -4,7 +4,7 @@
 package com.jlife.sys.security;
 
 
-import com.jlife.base.utils.StringUtils;
+import com.jlife.base.util.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -27,6 +27,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 	public static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
 	public static final String DEFAULT_MOBILE_PARAM = "mobileLogin";
 	public static final String DEFAULT_MESSAGE_PARAM = "message";
+	public static final String SUCCESS_URL= "/sys/index";
 
 	private String captchaParam = DEFAULT_CAPTCHA_PARAM;
 	private String mobileLoginParam = DEFAULT_MOBILE_PARAM;
@@ -69,7 +70,7 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 	 * 登录成功之后跳转URL
 	 */
 	public String getSuccessUrl() {
-		return super.getSuccessUrl();
+		return SUCCESS_URL;
 	}
 	
 	@Override
@@ -77,10 +78,13 @@ public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.
 			ServletResponse response) throws Exception {
 //		Principal p = UserUtils.getPrincipal();
 //		if (p != null && !p.isMobileLogin()){
-			 WebUtils.issueRedirect(request, response, getSuccessUrl(), null, true);
+		//	 WebUtils.issueRedirect(request, response, getSuccessUrl(), null, true);
 //		}else{
 //			super.issueSuccessRedirect(request, response);
 //		}
+
+
+		WebUtils.issueRedirect(request, response, getSuccessUrl() , null, true);
 	}
 
 	/**

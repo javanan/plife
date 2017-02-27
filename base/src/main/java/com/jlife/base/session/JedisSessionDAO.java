@@ -6,10 +6,10 @@ package com.jlife.base.session;
 import com.google.common.collect.Sets;
 
 
-import com.jlife.base.utils.JedisUtils;
-import com.jlife.base.utils.StringUtils;
+import com.jlife.base.util.JedisUtils;
+import com.jlife.base.util.StringUtils;
 import com.jlife.base.config.Global;
-import com.jlife.base.utils.DateUtils;
+import com.jlife.base.util.DateUtils;
 import com.jlife.base.web.Servlets;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
