@@ -1,7 +1,7 @@
 package com.jlife.base.servlet;
 
 import com.google.common.collect.Maps;
-import com.jlife.base.utils.CacheUtils;
+import com.jlife.base.util.CacheUtils;
 
 import java.util.Map;
 

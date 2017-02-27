@@ -9,7 +9,7 @@
     <description>Spring MVC Configuration</description>
 
     <!-- 加载配置属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:mvc.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:jlife.properties"/>
 
 
     <!--<context:component-scan base-package="com.jlife.*" />-->
@@ -120,7 +120,7 @@
 
 
     <!-- 定义无Controller的path<->view直接映射 -->
-    <mvc:view-controller path="/" view-name="redirect:${mvc.viejw.index}"/>
+    <mvc:view-controller path="/" view-name="redirect:${mvc.view.index}"/>
 
 
 </beans>

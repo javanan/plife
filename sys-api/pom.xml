@@ -16,6 +16,7 @@
             <groupId>jlife</groupId>
             <artifactId>jlife-base</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>

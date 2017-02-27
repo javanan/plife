@@ -30,7 +30,7 @@
 
     <filter>
         <filter-name>initFilter</filter-name>
-        <filter-class>com.jlife.base.filter.InitFilter</filter-class>
+        <filter-class>com.jlife.base.filter.OncePerReqFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>initFilter</filter-name>

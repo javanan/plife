@@ -8,6 +8,7 @@ import com.jlife.base.config.Global;
  * Describe: sys （api）模块 全局变量配置
  */
 public class SysGlobal extends Global {
+
     public static final String HASH_ALGORITHM = "SHA-1";
     public static final int HASH_INTERATIONS = 1024;
     public static final int SALT_SIZE = 8;

@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <!--install 乱码问题-->
+        <argLine>-Dfile.encoding=UTF-8</argLine>
         <!--系统版本-->
         <jlife-version>1.0-SNAPSHOT</jlife-version>
         <!--数据库连接池druid版本-->
@@ -52,6 +54,17 @@
         <module>sys-api</module>
         <module>sys-server</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
     <dependencyManagement>
         <dependencies>
 
@@ -99,4 +112,5 @@
 
         </dependencies>
     </dependencyManagement>
+
 </project>

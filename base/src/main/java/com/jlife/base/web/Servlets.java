@@ -7,9 +7,9 @@ package com.jlife.base.web;
 
 import com.google.common.net.HttpHeaders;
 
-import com.jlife.base.utils.StringUtils;
+import com.jlife.base.util.StringUtils;
 import com.jlife.base.config.Global;
-import com.jlife.base.utils.Encodes;
+import com.jlife.base.util.Encodes;
 
 
 import org.apache.commons.lang3.Validate;

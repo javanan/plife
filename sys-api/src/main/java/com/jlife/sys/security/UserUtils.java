@@ -4,8 +4,8 @@
 package com.jlife.sys.security;
 
 
-import com.jlife.base.utils.CacheUtils;
-import com.jlife.base.utils.SpringContextHolder;
+import com.jlife.base.util.CacheUtils;
+import com.jlife.base.util.SpringContextHolder;
 import com.jlife.sys.dao.SysUserDao;
 import com.jlife.sys.pojo.SysUser;
 import org.apache.shiro.SecurityUtils;
@@ -126,8 +126,8 @@ public class UserUtils {
 				return null;
 			}
 			//sysUser.setRoleList(roleDao.findList(new Role(user)));
-			//CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
-			//CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + sysUser.getId(), sysUser);
+			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + sysUser.getLoginName(), sysUser);
 		}
 		return sysUser;
 	}

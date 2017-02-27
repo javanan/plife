@@ -3,7 +3,7 @@
  * 
  * $Id: PropertiesLoader.java 1690 2012-02-22 13:42:00Z calvinxiu $
  */
-package com.jlife.base.utils;
+package com.jlife.base.util;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;

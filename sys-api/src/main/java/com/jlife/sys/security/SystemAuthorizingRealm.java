@@ -8,13 +8,15 @@ import com.jlife.base.config.Global;
 import com.jlife.base.servlet.ValidateCodeServlet;
 import com.jlife.base.servlet.ValidateCodeUtil;
 import com.jlife.base.session.SessionDAO;
-import com.jlife.base.utils.Encodes;
+import com.jlife.base.util.Encodes;
+import com.jlife.sys.config.SysGlobal;
 import com.jlife.sys.pojo.SysUser;
 import com.jlife.sys.service.SysUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.Permission;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -184,9 +186,9 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
      */
     @PostConstruct
     public void initCredentialsMatcher() {
-      //  HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(sysUserService.HASH_ALGORITHM);
-      //  matcher.setHashIterations(sysUserService.HASH_INTERATIONS);
-       // setCredentialsMatcher(matcher);
+        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(SysGlobal.HASH_ALGORITHM);
+       matcher.setHashIterations(SysGlobal.HASH_INTERATIONS);
+        setCredentialsMatcher(matcher);
     }
 
 //	/**

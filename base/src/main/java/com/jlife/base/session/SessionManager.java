@@ -4,7 +4,7 @@
 package com.jlife.base.session;
 
 
-import com.jlife.base.utils.StringUtils;
+import com.jlife.base.util.StringUtils;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;

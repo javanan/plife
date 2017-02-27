@@ -2,7 +2,7 @@ package com.jlife.sys.controller;
 
 import com.jlife.base.config.Global;
 import com.jlife.base.session.SessionDAO;
-import com.jlife.base.utils.CookieUtils;
+import com.jlife.base.util.CookieUtils;
 import com.jlife.base.web.BaseController;
 import com.jlife.sys.security.SystemAuthorizingRealm;
 import com.jlife.sys.security.UserUtils;
@@ -21,12 +21,12 @@ import javax.servlet.http.HttpServletResponse;
  * Describe: 系统登录 controller
  */
 @Controller
-public class SysLoginController extends BaseController{
+public class SysSignController extends BaseController{
 
     @Autowired
     private SessionDAO sessionDAO;
     /**
-     * 管理登录
+     * 管理登录，实际的登录交给了 shiro--》filter
      * @param request
      * @param response
      * @param model
@@ -48,10 +48,10 @@ public class SysLoginController extends BaseController{
 
         // 如果已经登录，则跳转到管理首页
         if(principal != null && !principal.isMobileLogin()){
-            return "redirect:" + adminPath;
+            return "redirect:" + adminPath+successUrl;
         }
-        request.setAttribute("AppName","xx");
-        return "/user/login";
+
+        return "/sign/login";
     }
 
 }

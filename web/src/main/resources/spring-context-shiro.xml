@@ -8,7 +8,8 @@
 	<description>Shiro Configuration</description>
 
 	<!-- 加载配置属性文件 -->
-	<context:property-placeholder ignore-unresolvable="true" location="classpath:shiro.properties" />
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:jlife.properties" />
+
 
 	<!-- Shiro权限过滤过滤器定义 -->
 	<bean name="shiroFilterChainDefinitions" class="java.lang.String">
@@ -16,6 +17,7 @@
 			<value>
 				/assets/** = anon
 				/userfiles/** = anon
+				${mvc.view.index}/**=anon
 				${adminPath}/cas = cas
 				${adminPath}/login = authc
 				${adminPath}/logout = logout
@@ -32,7 +34,7 @@
 		<property name="securityManager" ref="securityManager" /><!-- 
 		<property name="loginUrl" value="${cas.server.url}?service=${cas.project.url}${adminPath}/cas" /> -->
 		<property name="loginUrl" value="${adminPath}/login" />
-		<property name="successUrl" value="${adminPath}?success" />
+		<property name="successUrl" value="${successUrl}" />
 		<property name="filters">
 			<map>
 				<entry key="cas" value-ref="casFilter"/>
