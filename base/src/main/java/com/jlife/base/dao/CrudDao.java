@@ -1,15 +1,17 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
-package com.jlife.sys.persistence;
+package com.jlife.base.dao;
 
 import java.util.List;
 
 /**
+ * Created by chen on 2017/4/10.
+ * <p>
+ * Email 122741482@qq.com
+ * <p>
  * DAO支持类实现
  *
  * @param <T>
  */
+
 public interface CrudDao<T> extends BaseDao {
 
     /**

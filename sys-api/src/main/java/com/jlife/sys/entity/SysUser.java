@@ -1,10 +1,9 @@
 package com.jlife.sys.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.jlife.base.config.Global;
-import com.jlife.sys.basepojo.DataDo;
+import com.jlife.base.entity.DataDo;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 

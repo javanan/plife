@@ -1,7 +1,7 @@
 package com.jlife.sys.dao;
 
+import com.jlife.base.dao.TreeDao;
 import com.jlife.sys.entity.SysMenu;
-import com.jlife.sys.persistence.TreeDao;
 import org.springframework.stereotype.Component;
 
 /**

@@ -2,7 +2,7 @@ package com.jlife.sys.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
-import com.jlife.sys.basepojo.DataDo;
+import com.jlife.base.entity.DataDo;
 import com.jlife.sys.config.DataScopeEnum;
 import com.jlife.sys.config.SysGlobal;
 import org.hibernate.validator.constraints.Length;

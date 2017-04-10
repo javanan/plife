@@ -1,7 +1,7 @@
 package com.jlife.sys.dao;
 
+import com.jlife.base.dao.CrudDao;
 import com.jlife.sys.entity.SysUser;
-import com.jlife.sys.persistence.CrudDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
 package com.jlife.sys.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jlife.sys.basepojo.DataDo;
+import com.jlife.base.entity.DataDo;
 import org.hibernate.validator.constraints.Length;
 
 /**

@@ -1,6 +1,6 @@
 package com.jlife.sys.entity;
 
-import com.jlife.sys.basepojo.TreeDo;
+import com.jlife.base.entity.TreeDo;
 import org.hibernate.validator.constraints.Length;
 
 /**

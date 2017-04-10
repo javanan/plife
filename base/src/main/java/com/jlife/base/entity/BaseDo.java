@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.jlife.sys.basepojo;
+package com.jlife.base.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Maps;
@@ -9,6 +9,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -69,12 +70,12 @@ public abstract class BaseDo<T> implements Serializable {
 	/**
 	 * 插入之前执行方法，子类实现
 	 */
-	public abstract void preInsert();
+	public abstract void preInsert(String insertUserId);
 	
 	/**
 	 * 更新之前执行方法，子类实现
 	 */
-	public abstract void preUpdate();
+	public abstract void preUpdate(String updateUserId);
 	
 	/**
 	 * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。

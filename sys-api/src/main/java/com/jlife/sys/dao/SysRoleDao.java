@@ -1,12 +1,8 @@
 package com.jlife.sys.dao;
 
-import com.jlife.sys.basepojo.DataDo;
+import com.jlife.base.dao.CrudDao;
 import com.jlife.sys.entity.SysRole;
-import com.jlife.sys.entity.SysUser;
-import com.jlife.sys.persistence.CrudDao;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * Created by chen on 2017/3/2.

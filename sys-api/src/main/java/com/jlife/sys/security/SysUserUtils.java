@@ -4,11 +4,9 @@
 package com.jlife.sys.security;
 
 
-import com.jlife.base.config.Global;
 import com.jlife.base.util.CacheUtils;
 import com.jlife.base.util.SpringContextHolder;
-import com.jlife.sys.basepojo.BaseDo;
-import com.jlife.sys.config.SysGlobal;
+import com.jlife.base.entity.BaseDo;
 import com.jlife.sys.dao.SysRoleDao;
 import com.jlife.sys.dao.SysUserDao;
 import com.jlife.sys.entity.SysRole;

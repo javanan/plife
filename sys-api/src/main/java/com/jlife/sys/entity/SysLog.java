@@ -1,6 +1,6 @@
 package com.jlife.sys.entity;
 
-import com.jlife.sys.basepojo.DataDo;
+import com.jlife.base.entity.DataDo;
 
 /**
  * Created by chen on 2017/4/10.

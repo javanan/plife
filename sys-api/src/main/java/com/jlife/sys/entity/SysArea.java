@@ -1,6 +1,6 @@
 package com.jlife.sys.entity;
 
-import com.jlife.sys.basepojo.BaseDo;
+import com.jlife.base.entity.BaseDo;
 
 /**
  * Created by chen on 2017/3/31.
@@ -10,17 +10,6 @@ import com.jlife.sys.basepojo.BaseDo;
  * Describe: 区域信息表
  */
 public class SysArea extends BaseDo<SysArea> {
-
-    @Override
-    public void preInsert() {
-
-    }
-
-    @Override
-    public void preUpdate() {
-
-    }
-
 
     /**
      * varchar(64) NULL名称
@@ -57,5 +46,15 @@ public class SysArea extends BaseDo<SysArea> {
 
     public void setJkey(String jkey) {
         this.jkey = jkey;
+    }
+
+    @Override
+    public void preInsert(String insertUserId) {
+
+    }
+
+    @Override
+    public void preUpdate(String updateUserId) {
+
     }
 }

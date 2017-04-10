@@ -1,14 +1,11 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.jlife.sys.basepojo;
+package com.jlife.base.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jlife.base.util.IdGen;
-import com.jlife.sys.config.SysGlobal;
-import com.jlife.sys.entity.SysUser;
-import com.jlife.sys.security.SysUserUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;
 
@@ -23,9 +20,9 @@ public abstract class DataDo<T> extends BaseDo<T> {
 	private static final long serialVersionUID = 1L;
 	
 
-	protected String createid;	// 创建者
+	protected String createId;	// 创建者
 	protected Date createDate;	// 创建日期
-	protected String updateid;	// 更新者
+	protected String updateId;	// 更新者
 	protected Date updateDate;	// 更新日期
 	protected String delFlag; 	// 删除标记（Y：正常；N：删除；A：审核；）
 	protected String remark;	// 备注
@@ -35,15 +32,15 @@ public abstract class DataDo<T> extends BaseDo<T> {
 	 * 插入之前执行方法，需要手动调用
 	 */
 	@Override
-	public void preInsert(){
+	public void preInsert(String insertUserId){
 		// 不限制ID为UUID，调用setIsNewRecord()使用自定义ID
 		if (!this.isNewRecord){
 			setId(IdGen.uuid());
 		}
-		SysUser user = SysUserUtils.getSysUser();
-		if (StringUtils.isNotBlank(user.getId())){
-			this.updateid = user.getUpdateid();
-			this.createid = user.getCreateid();
+
+		if (StringUtils.isNotBlank(insertUserId)){
+			this.updateId = insertUserId;
+			this.createId = insertUserId;
 		}
 		this.updateDate = new Date();
 		this.createDate = this.updateDate;
@@ -53,21 +50,21 @@ public abstract class DataDo<T> extends BaseDo<T> {
 	 * 更新之前执行方法，需要手动调用
 	 */
 	@Override
-	public void preUpdate(){
-		SysUser user = SysUserUtils.getSysUser();
-		if (StringUtils.isNotBlank(user.getId())){
-			this.updateid = user.getUpdateid();
+	public void preUpdate(String updateUserId){
+
+		if (StringUtils.isNotBlank(updateUserId)){
+			this.updateId = updateUserId;
 		}
 		this.updateDate = new Date();
 	}
 
 	@JsonIgnore
-	public String getCreateid() {
-		return createid;
+	public String getCreateId() {
+		return createId;
 	}
 
-	public void setCreateid(String createid) {
-		this.createid = createid;
+	public void setCreateId(String createId) {
+		this.createId = createId;
 	}
 
 
@@ -81,12 +78,12 @@ public abstract class DataDo<T> extends BaseDo<T> {
 	}
 
 	@JsonIgnore
-	public String getUpdateid() {
-		return updateid;
+	public String getUpdateId() {
+		return updateId;
 	}
 
-	public void setUpdateid(String updateid) {
-		this.updateid = updateid;
+	public void setUpdateId(String updateId) {
+		this.updateId = updateId;
 	}
 
 	public DataDo() {

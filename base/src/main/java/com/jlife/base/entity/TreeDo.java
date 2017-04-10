@@ -1,12 +1,7 @@
-package com.jlife.sys.basepojo;
+package com.jlife.base.entity;
 
-import javax.validation.constraints.NotNull;
-
-import com.jlife.base.util.Reflections;
 import com.jlife.base.util.StringUtils;
 import org.hibernate.validator.constraints.Length;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 /**

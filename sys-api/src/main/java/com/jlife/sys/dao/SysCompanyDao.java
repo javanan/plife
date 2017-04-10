@@ -1,8 +1,7 @@
 package com.jlife.sys.dao;
 
-import com.jlife.sys.entity.SysArea;
+import com.jlife.base.dao.CrudDao;
 import com.jlife.sys.entity.SysCompany;
-import com.jlife.sys.persistence.CrudDao;
 
 /**
  * Created by chen on 2017/4/10.
