@@ -18,11 +18,6 @@ public class SysOffice extends TreeDo<SysOffice> {
      */
     private String code;
 
-    /**
-     * varchar(100)NULL图标
-     */
-    private String icon;
-
 
     /**
      * varchar(64)NULL所在公司id
@@ -39,14 +34,7 @@ public class SysOffice extends TreeDo<SysOffice> {
         this.code = code;
     }
 
-    @Length(min = 0, max = 1000, message = "图标路径长度必须介于 1 和 1000 之间")
-    public String getIcon() {
-        return icon;
-    }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
 
     @Length(min = 0, max = 64, message = "公司id长度必须介于 1 和 64 之间")
     public String getSysCompanyId() {

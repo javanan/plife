@@ -1,8 +1,7 @@
 package com.jlife.sys.dao;
 
-import com.jlife.sys.entity.SysMenu;
 import com.jlife.sys.entity.SysOffice;
-import com.jlife.sys.persistence.CrudDao;
+import com.jlife.sys.persistence.TreeDao;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,5 +12,5 @@ import org.springframework.stereotype.Component;
  * Describe: 组织架构dao
  */
 @Component
-public interface SysOfficeDao extends CrudDao<SysOffice> {
+public interface SysOfficeDao extends TreeDao<SysOffice> {
 }

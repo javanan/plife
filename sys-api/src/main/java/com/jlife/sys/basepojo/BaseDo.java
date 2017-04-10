@@ -24,9 +24,7 @@ public abstract class BaseDo<T> implements Serializable {
 	 * 实体编号（唯一标识）
 	 */
 	protected String id;
-	
 
-	
 	/**
 	 * 自定义SQL（SQL标识，SQL内容）
 	 */
@@ -46,7 +44,6 @@ public abstract class BaseDo<T> implements Serializable {
 		this();
 		this.id = id;
 	}
-
 
 	public String getId() {
 		return id;
@@ -79,8 +76,6 @@ public abstract class BaseDo<T> implements Serializable {
 	 */
 	public abstract void preUpdate();
 	
-
-
 	/**
 	 * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
 	 * 设置为true后强制执行插入语句，ID不会自动生成，需从手动传入。
@@ -89,8 +84,6 @@ public abstract class BaseDo<T> implements Serializable {
 		this.isNewRecord = isNewRecord;
 	}
 
-
-	
     @Override
     public boolean equals(Object obj) {
         if (null == obj) {

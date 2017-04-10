@@ -7,12 +7,12 @@ package com.jlife.sys.config;
  * <p>
  * Describe: 菜单类型 枚举类
  */
-public enum MenuEnum {
+public enum SysMenuTypeEnum {
     MENU("菜单"),BUTTON("按钮");
 
 
     private final String value;
-    MenuEnum(final String value){
+    SysMenuTypeEnum(final String value){
         this.value=value;
     }
     public String getValue(){

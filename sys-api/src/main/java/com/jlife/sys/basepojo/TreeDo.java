@@ -36,6 +36,19 @@ public abstract class TreeDo<T> extends DataDo<T> {
      * varchar(100) 名称
      */
     protected String name;
+    /**
+     * varchar(100)NULL图标
+     */
+    private String icon;
+
+    @Length(min = 0, max = 1000, message = "icon长度必须介于 1 和 1000 之间")
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
     public TreeDo() {
         super();
@@ -72,7 +85,6 @@ public abstract class TreeDo<T> extends DataDo<T> {
     public void setSort(Integer sort) {
         this.sort = sort;
     }
-
 
     @Length(min = 0, max = 100, message = "资源名称长度必须介于 1 和 100 之间")
     public String getName() {

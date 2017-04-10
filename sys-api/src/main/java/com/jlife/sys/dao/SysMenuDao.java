@@ -1,7 +1,7 @@
 package com.jlife.sys.dao;
 
 import com.jlife.sys.entity.SysMenu;
-import com.jlife.sys.persistence.CrudDao;
+import com.jlife.sys.persistence.TreeDao;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Component;
  * Describe: 菜单dao
  */
 @Component
-public interface SysMenuDao extends CrudDao<SysMenu> {
+public interface SysMenuDao extends TreeDao<SysMenu> {
 }

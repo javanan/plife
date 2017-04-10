@@ -26,10 +26,7 @@ public class SysMenu extends TreeDo<SysMenu> {
      */
     private String target;
 
-    /**
-     * varchar(1000) NULL图标
-     */
-    private String icon;
+
     /**
      * char(1) NULL是否展示
      */
@@ -72,14 +69,6 @@ public class SysMenu extends TreeDo<SysMenu> {
         this.target = target;
     }
 
-    @Length(min = 0, max = 1000, message = "icon长度必须介于 1 和 1000 之间")
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
 
     @Length(min = 0, max = 1, message = "标识长度必须介于 1 和 1 之间")
     public String getShowFlag() {
