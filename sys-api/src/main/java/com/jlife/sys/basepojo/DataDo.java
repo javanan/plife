@@ -27,7 +27,7 @@ public abstract class DataDo<T> extends BaseDo<T> {
 	protected Date createDate;	// 创建日期
 	protected String updateid;	// 更新者
 	protected Date updateDate;	// 更新日期
-	protected String delFlag; 	// 删除标记（0：正常；1：删除；2：审核）
+	protected String delFlag; 	// 删除标记（Y：正常；N：删除；A：审核；）
 	protected String remark;	// 备注
 
 

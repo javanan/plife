@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * 数据Entity类
+ *
  * @author ThinkGem
  * @version 2014-05-16
  */
@@ -18,10 +19,23 @@ public abstract class TreeDo<T> extends DataDo<T> {
 
     private static final long serialVersionUID = 1L;
 
-    protected T parent;	// 父级编号
-    protected String parentIds; // 所有父级编号
-    protected String name; 	// 机构名称
-    protected Integer sort;		// 排序
+    /**
+     * varchar(64) NULL父id
+     */
+    protected String parentId;
+    /**
+     * varchar(1000) NULL路径
+     */
+    protected String path;
+    /**
+     * int(11) NULL排序
+     */
+    protected Integer sort;
+
+    /**
+     * varchar(100) 名称
+     */
+    protected String name;
 
     public TreeDo() {
         super();
@@ -32,38 +46,25 @@ public abstract class TreeDo<T> extends DataDo<T> {
         super(id);
     }
 
-    /**
-     * 父对象，只能通过子类实现，父类实现mybatis无法读取
-     * @return
-     */
-    @JsonBackReference
-    @NotNull
-    public abstract T getParent();
-
-    /**
-     * 父对象，只能通过子类实现，父类实现mybatis无法读取
-     * @return
-     */
-    public abstract void setParent(T parent);
-
-    @Length(min=1, max=2000)
-    public String getParentIds() {
-        return parentIds;
+    @Length(min = 0, max = 64, message = "父id长度必须介于 1 和 64 之间")
+    public String getParentId() {
+        return StringUtils.isNotBlank(id) ? id : "0";
     }
 
-    public void setParentIds(String parentIds) {
-        this.parentIds = parentIds;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
-    @Length(min=1, max=100)
-    public String getName() {
-        return name;
+    @Length(min = 0, max = 1000, message = "路径长度必须介于 1 和 1000 之间")
+    public String getPath() {
+        return path;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPath(String path) {
+        this.path = path;
     }
 
+    @Length(min = 0, max = 11, message = "排序长度必须介于 1 和 11 之间")
     public Integer getSort() {
         return sort;
     }
@@ -72,12 +73,13 @@ public abstract class TreeDo<T> extends DataDo<T> {
         this.sort = sort;
     }
 
-    public String getParentId() {
-        String id = null;
-        if (parent != null){
-            id = (String) Reflections.getFieldValue(parent, "id");
-        }
-        return StringUtils.isNotBlank(id) ? id : "0";
+
+    @Length(min = 0, max = 100, message = "资源名称长度必须介于 1 和 100 之间")
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
