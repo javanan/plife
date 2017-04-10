@@ -55,7 +55,7 @@ public class CacheSessionDAO extends EnterpriseCacheSessionDAO implements Sessio
 			}
 			// 手动控制不更新SESSION
 			String updateSession = request.getParameter("updateSession");
-			if (Global.FALSE.equals(updateSession) || Global.NO.equals(updateSession)){
+			if ( Global.NO.equals(updateSession)){
 				return;
 			}
 		}

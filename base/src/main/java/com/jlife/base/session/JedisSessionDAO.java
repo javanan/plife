@@ -4,17 +4,15 @@
 package com.jlife.base.session;
 
 import com.google.common.collect.Sets;
-
-
-import com.jlife.base.util.JedisUtils;
-import com.jlife.base.util.StringUtils;
 import com.jlife.base.config.Global;
 import com.jlife.base.util.DateUtils;
+import com.jlife.base.util.JedisUtil;
+import com.jlife.base.util.StringUtils;
 import com.jlife.base.web.Servlets;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.SimpleSession;
-import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
+import org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.slf4j.Logger;
@@ -33,7 +31,7 @@ import java.util.Set;
  * @author ThinkGem
  * @version 2014-7-20
  */
-public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
+public class JedisSessionDAO extends EnterpriseCacheSessionDAO implements SessionDAO {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
@@ -66,14 +64,14 @@ public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 		Jedis jedis = null;
 		try {
 			
-			jedis = JedisUtils.getResource();
+			jedis = JedisUtil.getResource();
 			
 			// 获取登录者编号
 			PrincipalCollection pc = (PrincipalCollection)session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
 			String principalId = pc != null ? pc.getPrimaryPrincipal().toString() : StringUtils.EMPTY;
 			
 			jedis.hset(sessionKeyPrefix, session.getId().toString(), principalId + "|" + session.getTimeout() + "|" + session.getLastAccessTime().getTime());
-			jedis.set(JedisUtils.getBytesKey(sessionKeyPrefix + session.getId()), JedisUtils.toBytes(session));
+			jedis.set(JedisUtil.getBytesKey(sessionKeyPrefix + session.getId()), JedisUtil.toBytes(session));
 			
 			// 设置超期时间
 			int timeoutSeconds = (int)(session.getTimeout() / 1000);
@@ -83,7 +81,7 @@ public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 		} catch (Exception e) {
 			logger.error("update {} {}", session.getId(), request != null ? request.getRequestURI() : "", e);
 		} finally {
-			JedisUtils.returnResource(jedis);
+			JedisUtil.returnResource(jedis);
 		}
 	}
 
@@ -95,16 +93,16 @@ public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 		
 		Jedis jedis = null;
 		try {
-			jedis = JedisUtils.getResource();
+			jedis = JedisUtil.getResource();
 			
-			jedis.hdel(JedisUtils.getBytesKey(sessionKeyPrefix), JedisUtils.getBytesKey(session.getId().toString()));
-			jedis.del(JedisUtils.getBytesKey(sessionKeyPrefix + session.getId()));
+			jedis.hdel(JedisUtil.getBytesKey(sessionKeyPrefix), JedisUtil.getBytesKey(session.getId().toString()));
+			jedis.del(JedisUtil.getBytesKey(sessionKeyPrefix + session.getId()));
 
 			logger.debug("delete {} ", session.getId());
 		} catch (Exception e) {
 			logger.error("delete {} ", session.getId(), e);
 		} finally {
-			JedisUtils.returnResource(jedis);
+			JedisUtil.returnResource(jedis);
 		}
 	}
 	
@@ -136,7 +134,7 @@ public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 		
 		Jedis jedis = null;
 		try {
-			jedis = JedisUtils.getResource();
+			jedis = JedisUtil.getResource();
 			Map<String, String> map = jedis.hgetAll(sessionKeyPrefix);
 			for (Map.Entry<String, String> e : map.entrySet()){
 				if (StringUtils.isNotBlank(e.getKey()) && StringUtils.isNotBlank(e.getValue())){
@@ -193,7 +191,7 @@ public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 		} catch (Exception e) {
 			logger.error("getActiveSessions", e);
 		} finally {
-			JedisUtils.returnResource(jedis);
+			JedisUtil.returnResource(jedis);
 		}
 		return sessions;
 	}
@@ -234,16 +232,16 @@ public class JedisSessionDAO extends AbstractSessionDAO implements SessionDAO {
 		Session session = null;
 		Jedis jedis = null;
 		try {
-			jedis = JedisUtils.getResource();
+			jedis = JedisUtil.getResource();
 //			if (jedis.exists(sessionKeyPrefix + sessionId)){
-				session = (Session)JedisUtils.toObject(jedis.get(
-						JedisUtils.getBytesKey(sessionKeyPrefix + sessionId)));
+				session = (Session) JedisUtil.toObject(jedis.get(
+						JedisUtil.getBytesKey(sessionKeyPrefix + sessionId)));
 //			}
 			logger.debug("doReadSession {} {}", sessionId, request != null ? request.getRequestURI() : "");
 		} catch (Exception e) {
 			logger.error("doReadSession {} {}", sessionId, request != null ? request.getRequestURI() : "", e);
 		} finally {
-			JedisUtils.returnResource(jedis);
+			JedisUtil.returnResource(jedis);
 		}
 		
 		if (request != null && session != null){

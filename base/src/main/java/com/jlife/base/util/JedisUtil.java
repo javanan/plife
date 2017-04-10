@@ -24,9 +24,9 @@ import java.util.Set;
  * @author ThinkGem
  * @version 2014-6-29
  */
-public class JedisUtils {
+public class JedisUtil {
 
-	private static Logger logger = LoggerFactory.getLogger(JedisUtils.class);
+	private static Logger logger = LoggerFactory.getLogger(JedisUtil.class);
 	
 	private static JedisPool jedisPool = SpringContextHolder.getBean(JedisPool.class);
 
@@ -824,7 +824,7 @@ public class JedisUtils {
 			return StringUtils.toString(key);
 		}catch(UnsupportedOperationException uoe){
 			try{
-				return JedisUtils.toObject(key);
+				return JedisUtil.toObject(key);
 			}catch(UnsupportedOperationException uoe2){
 				uoe2.printStackTrace();
 			}

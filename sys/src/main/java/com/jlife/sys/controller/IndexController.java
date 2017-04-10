@@ -20,6 +20,7 @@ public class IndexController extends BaseController {
      */
     @RequestMapping(value="/index",method = RequestMethod.GET)
     public String index(){
-        return "/index/index";
+      //  return "/index/index";
+        return "user/index";
     }
 }

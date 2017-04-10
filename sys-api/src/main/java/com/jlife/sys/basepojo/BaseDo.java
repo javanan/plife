@@ -13,18 +13,17 @@ import java.util.Map;
 
 /**
  * Entity支持类
- * @author ThinkGem
- * @version 2014-05-16
+ * @param <T>
  */
 
-public abstract class BaseEntity<T> implements Serializable {
+public abstract class BaseDo<T> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 实体编号（唯一标识）
 	 */
-	protected Long id;
+	protected String id;
 	
 
 	
@@ -39,21 +38,21 @@ public abstract class BaseEntity<T> implements Serializable {
 	 */
 	protected boolean isNewRecord = false;
 
-	public BaseEntity() {
+	public BaseDo() {
 		
 	}
 	
-	public BaseEntity(Long id) {
+	public BaseDo(String id) {
 		this();
 		this.id = id;
 	}
 
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -103,7 +102,7 @@ public abstract class BaseEntity<T> implements Serializable {
         if (!getClass().equals(obj.getClass())) {
             return false;
         }
-        BaseEntity<?> that = (BaseEntity<?>) obj;
+        BaseDo<?> that = (BaseDo<?>) obj;
         return null == this.getId() ? false : this.getId().equals(that.getId());
     }
     
@@ -111,12 +110,12 @@ public abstract class BaseEntity<T> implements Serializable {
     public String toString() {
         return ReflectionToStringBuilder.toString(this);
     }
-    
+
 	/**
-	 * 删除标记（0：正常；1：删除；2：审核；）
+	 * 删除标记（Y：正常；N：删除；A：审核；）
 	 */
-	public static final String DEL_FLAG_NORMAL = "0";
-	public static final String DEL_FLAG_DELETE = "1";
-	public static final String DEL_FLAG_AUDIT = "2";
+	public static final String DEL_FLAG_NORMAL = "Y";
+	public static final String DEL_FLAG_DELETE = "N";
+	public static final String DEL_FLAG_AUDIT = "A";
 	
 }

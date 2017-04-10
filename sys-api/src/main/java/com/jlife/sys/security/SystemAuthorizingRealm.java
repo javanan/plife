@@ -10,7 +10,7 @@ import com.jlife.base.servlet.ValidateCodeUtil;
 import com.jlife.base.session.SessionDAO;
 import com.jlife.base.util.Encodes;
 import com.jlife.sys.config.SysGlobal;
-import com.jlife.sys.pojo.SysUser;
+import com.jlife.sys.entity.SysUser;
 import com.jlife.sys.service.SysUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -68,7 +68,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 
         // 校验登录验证码
         if (ValidateCodeUtil.isValidateCodeLogin(token.getUsername(), false, false)) {
-            Session session = UserUtils.getSession();
+            Session session = SysUserUtils.getSession();
             String code = (String) session.getAttribute(ValidateCodeServlet.VALIDATE_CODE);
             if (token.getCaptcha() == null || !token.getCaptcha().toUpperCase().equals(code)) {
                 throw new AuthenticationException("msg:验证码错误, 请重试.");
@@ -96,18 +96,18 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         Principal principal = (Principal) getAvailablePrincipal(principals);
         // 获取当前已登录的用户
-        if (!Global.TRUE.equals(Global.getConfig("user.multiAccountLogin"))) {
-            Collection<Session> sessions = sessionDAO.getActiveSessions(true, principal, UserUtils.getSession());
+        if (!Global.YES.equals(Global.getConfig("user.multiAccountLogin"))) {
+            Collection<Session> sessions = sessionDAO.getActiveSessions(true, principal, SysUserUtils.getSession());
             if (sessions.size() > 0) {
                 // 如果是登录进来的，则踢出已在线用户
-                if (UserUtils.getSubject().isAuthenticated()) {
+                if (SysUserUtils.getSubject().isAuthenticated()) {
                     for (Session session : sessions) {
                         sessionDAO.delete(session);
                     }
                 }
                 // 记住我进来的，并且当前用户已登录，则退出当前用户提示信息。
                 else {
-                    UserUtils.getSubject().logout();
+                    SysUserUtils.getSubject().logout();
                     throw new AuthenticationException("msg:账号已在其它地方登录，请重新登录。");
                 }
             }
@@ -231,7 +231,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 
         private static final long serialVersionUID = 1L;
 
-        private Long id; // 编号
+        private String id; // 编号
         private String loginName; // 登录名
         private String name; // 姓名
         private boolean mobileLogin; // 是否手机登录
@@ -272,17 +272,17 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
          */
         public String getSessionid() {
             try {
-                return (String) UserUtils.getSession().getId();
+                return (String) SysUserUtils.getSession().getId();
             } catch (Exception e) {
                 return "";
             }
         }
 
-        public Long getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(Long id) {
+        public void setId(String id) {
             this.id = id;
         }
     }

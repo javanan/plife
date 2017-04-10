@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping("index")
     public ModelAndView  index(Model model){
-        sysUserService.fetch(1L);
+        sysUserService.getById("1");
         ModelAndView view = new ModelAndView("/user/index");
         view.addObject("username","dddd");
         view.addObject("s","士大夫");

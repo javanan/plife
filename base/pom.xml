@@ -26,30 +26,7 @@
         </dependency>
 
 
-        <!-- LOGGING begin -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j-version}</version>
-        </dependency>
-        <!-- common-logging 实际调用slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j-version}</version>
-        </dependency>
-        <!-- java.util.logging 实际调用slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-            <version>${slf4j-version}</version>
-        </dependency>
-        <!-- LOGGING end -->
+
 
 
 
@@ -183,13 +160,23 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>com.ibeetl</groupId>
             <artifactId>beetl</artifactId>
             <version>${beetl-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>opensymphony</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>2.4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>

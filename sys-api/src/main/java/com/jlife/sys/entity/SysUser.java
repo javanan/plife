@@ -1,20 +1,22 @@
-package com.jlife.sys.pojo;
+package com.jlife.sys.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.common.collect.Lists;
 import com.jlife.base.config.Global;
-import com.jlife.sys.basepojo.DataEntity;
+import com.jlife.sys.basepojo.DataDo;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by chenjianan on 2016/12/13-20:00.
  * <p>
  * Describe: 系统用户bean
  */
-public class SysUser extends DataEntity<SysUser>{
+public class SysUser extends DataDo<SysUser> {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,30 +31,56 @@ public class SysUser extends DataEntity<SysUser>{
     private String email;	// 邮箱
     private String phone;	// 电话
     private String mobile;	// 手机
-    private String userType;// 用户类型
+
     private String loginIp;	// 最后登陆IP
-    private Date loginDate;	// 最后登陆日期
+    private String oldLoginIp;	// 上次登陆IP
     private String loginFlag;	// 是否允许登陆
     private String photo;	// 头像
 
-    private String oldLoginName;// 原登录名
-    private String newPassword;	// 新密码
-
-    private String oldLoginIp;	// 上次登陆IP
-    private Date oldLoginDate;	// 上次登陆日期
 
 
+    private SysRole sysRole;	// 根据角色查询用户条件
+    private List<SysRole> sysRoleList = Lists.newArrayList(); // 拥有角色列表
+
+    private SysCompany sysCompany;	// 归属公司
+
+    @JsonIgnore
+    public SysRole getSysRole() {
+        return sysRole;
+    }
+
+    public void setSysRole(SysRole sysRole) {
+        this.sysRole = sysRole;
+    }
+
+    @JsonIgnore
+    public List<SysRole> getSysRoleList() {
+        return sysRoleList;
+    }
+
+    public void setSysRoleList(List<SysRole> sysRoleList) {
+        this.sysRoleList = sysRoleList;
+    }
+
+    @JsonIgnore
+    public SysCompany getSysCompany() {
+        return sysCompany;
+    }
+
+    public void setSysCompany(SysCompany sysCompany) {
+        this.sysCompany = sysCompany;
+    }
 
     public SysUser() {
         super();
         this.loginFlag = Global.YES;
     }
 
-    public SysUser(Long id){
+    public SysUser(String id){
         super(id);
     }
 
-    public SysUser(Long id, String loginName){
+    public SysUser(String id, String loginName){
         super(id);
         this.loginName = loginName;
     }
@@ -76,16 +104,8 @@ public class SysUser extends DataEntity<SysUser>{
     }
 
 
-    public Long getId() {
+    public String getId() {
         return id;
-    }
-
-    public void preInsert() {
-
-    }
-
-    public void preUpdate() {
-
     }
 
 
@@ -124,7 +144,7 @@ public class SysUser extends DataEntity<SysUser>{
     }
 
     @Email(message="邮箱格式不正确")
-    @Length(min=0, max=200, message="邮箱长度必须介于 1 和 200 之间")
+    @Length(min=0, max=200, message="邮箱长度必须介于 1 和 100 之间")
 
     public String getEmail() {
         return email;
@@ -134,7 +154,7 @@ public class SysUser extends DataEntity<SysUser>{
         this.email = email;
     }
 
-    @Length(min=0, max=200, message="电话长度必须介于 1 和 200 之间")
+    @Length(min=0, max=200, message="电话长度必须介于 1 和 20 之间")
 
     public String getPhone() {
         return phone;
@@ -144,7 +164,7 @@ public class SysUser extends DataEntity<SysUser>{
         this.phone = phone;
     }
 
-    @Length(min=0, max=200, message="手机长度必须介于 1 和 200 之间")
+    @Length(min=0, max=200, message="手机长度必须介于 1 和 20 之间")
 
     public String getMobile() {
         return mobile;
@@ -152,21 +172,6 @@ public class SysUser extends DataEntity<SysUser>{
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
-    }
-
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    @Length(min=0, max=100, message="用户类型长度必须介于 1 和 100 之间")
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 
 
@@ -183,31 +188,7 @@ public class SysUser extends DataEntity<SysUser>{
         this.loginIp = loginIp;
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 
-    public Date getLoginDate() {
-        return loginDate;
-    }
-
-    public void setLoginDate(Date loginDate) {
-        this.loginDate = loginDate;
-    }
-
-    public String getOldLoginName() {
-        return oldLoginName;
-    }
-
-    public void setOldLoginName(String oldLoginName) {
-        this.oldLoginName = oldLoginName;
-    }
-
-    public String getNewPassword() {
-        return newPassword;
-    }
-
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
-    }
 
     public String getOldLoginIp() {
         if (oldLoginIp == null){
@@ -218,18 +199,6 @@ public class SysUser extends DataEntity<SysUser>{
 
     public void setOldLoginIp(String oldLoginIp) {
         this.oldLoginIp = oldLoginIp;
-    }
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    public Date getOldLoginDate() {
-        if (oldLoginDate == null){
-            return loginDate;
-        }
-        return oldLoginDate;
-    }
-
-    public void setOldLoginDate(Date oldLoginDate) {
-        this.oldLoginDate = oldLoginDate;
     }
 
 
@@ -243,10 +212,11 @@ public class SysUser extends DataEntity<SysUser>{
         return isAdmin(this.id);
     }
 
-    public static boolean isAdmin(Long id){
-        return id==1L;
-       // return id != null && "1".equals(id);
+    public static boolean isAdmin(String id){
+
+        return id != null && "1".equals(id);
     }
+
 
 
 }

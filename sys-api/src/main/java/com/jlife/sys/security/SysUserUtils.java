@@ -4,10 +4,15 @@
 package com.jlife.sys.security;
 
 
+import com.jlife.base.config.Global;
 import com.jlife.base.util.CacheUtils;
 import com.jlife.base.util.SpringContextHolder;
+import com.jlife.sys.basepojo.BaseDo;
+import com.jlife.sys.config.SysGlobal;
+import com.jlife.sys.dao.SysRoleDao;
 import com.jlife.sys.dao.SysUserDao;
-import com.jlife.sys.pojo.SysUser;
+import com.jlife.sys.entity.SysRole;
+import com.jlife.sys.entity.SysUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.session.InvalidSessionException;
@@ -19,14 +24,16 @@ import org.apache.shiro.subject.Subject;
  * @author ThinkGem
  * @version 2013-12-05
  */
-public class UserUtils {
+public class SysUserUtils {
 
 	private static SysUserDao sysUserDao = SpringContextHolder.getBean(SysUserDao.class);
+	private static SysRoleDao sysRoleDao = SpringContextHolder.getBean(SysRoleDao.class);
 
 	public static final String USER_CACHE = "userCache";
 	public static final String USER_CACHE_ID_ = "id_";
 	public static final String USER_CACHE_LOGIN_NAME_ = "ln";
 	public static final String USER_CACHE_LIST_BY_OFFICE_ID_ = "oid_";
+	public static final String USER_CACHE_LIST_BY_COMPANY_ID_ = "cid_";
 
 	public static final String CACHE_ROLE_LIST = "roleList";
 	public static final String CACHE_MENU_LIST = "menuList";
@@ -121,14 +128,80 @@ public class UserUtils {
 	public static SysUser getByLoginName(String loginName){
 		SysUser sysUser = (SysUser)CacheUtils.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
 		if (sysUser == null){
-			sysUser = sysUserDao.getByLoginName(new SysUser(null, loginName));
+			sysUser = sysUserDao.getByLoginName(loginName, BaseDo.DEL_FLAG_NORMAL);
 			if (sysUser == null){
 				return null;
 			}
-			//sysUser.setRoleList(roleDao.findList(new Role(user)));
+			// TODO 加入角色
+		//	sysUser.setSysRoleList(sysRoleDao.findList(new SysRole(sysUser)));
 			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + sysUser.getId(), sysUser);
 			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + sysUser.getLoginName(), sysUser);
 		}
 		return sysUser;
+	}
+
+	/**
+	 * 获取当前用户
+	 * @return 取不到返回 new User()
+	 */
+	public static SysUser getSysUser(){
+		SystemAuthorizingRealm.Principal principal = getPrincipal();
+		if (principal!=null){
+			SysUser user = getById(principal.getId());
+			if (user != null){
+				return user;
+			}
+			return new SysUser();
+		}
+		// 如果没有登录，则返回实例化空的User对象。
+		return new SysUser();
+	}
+
+	/**
+	 * 根据ID获取用户
+	 * @param id
+	 * @return 取不到返回null
+	 */
+	public static SysUser getById(String id){
+		SysUser sysUser = (SysUser)CacheUtils.get(USER_CACHE, USER_CACHE_ID_ + id);
+		if (sysUser ==  null){
+			sysUser = sysUserDao.getById(id);
+			if (sysUser == null){
+				return null;
+			}
+
+			sysUser.setSysRoleList(sysRoleDao.findList(new SysRole(sysUser)));
+			CacheUtils.put(USER_CACHE, USER_CACHE_ID_ + sysUser.getId(), sysUser);
+			CacheUtils.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + sysUser.getLoginName(), sysUser);
+		}
+		return sysUser;
+	}
+
+	/**
+	 * 清除当前用户缓存
+	 */
+	public static void clearCache(){
+		removeCache(CACHE_ROLE_LIST);
+		removeCache(CACHE_MENU_LIST);
+		removeCache(CACHE_AREA_LIST);
+		removeCache(CACHE_OFFICE_LIST);
+		removeCache(CACHE_OFFICE_ALL_LIST);
+		clearCache(getSysUser());
+	}
+
+	/**
+	 * 清除指定用户缓存
+	 * @param sysUser
+	 */
+	public static void clearCache(SysUser sysUser){
+		CacheUtils.remove(USER_CACHE, USER_CACHE_ID_ + sysUser.getId());
+		CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + sysUser.getLoginName());
+		//CacheUtils.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + sysUser.getOldLoginName());
+		if (sysUser.getSysCompany() != null && sysUser.getSysCompany().getId() != null){
+			CacheUtils.remove(USER_CACHE, USER_CACHE_LIST_BY_COMPANY_ID_+ sysUser.getId());
+		}
+		if (sysUser.getSysRoleList() != null && sysUser.getSysRoleList().size()>0 ){
+			CacheUtils.remove(USER_CACHE, CACHE_OFFICE_LIST + sysUser.getId());
+		}
 	}
 }

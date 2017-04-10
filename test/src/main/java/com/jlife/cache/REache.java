@@ -1,7 +1,8 @@
 package com.jlife.cache;
 
 import org.apache.ibatis.cache.Cache;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.locks.ReadWriteLock;
 
@@ -12,38 +13,38 @@ import java.util.concurrent.locks.ReadWriteLock;
  */
 public class REache implements Cache {
 
-    Logger l=  Logger.getLogger(REache.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public String getId() {
-        l.info("使用REache getId");
+        logger.info("使用REache getId");
         return null;
     }
 
     public void putObject(Object o, Object o1) {
-        l.info("使用REache putObject");
+        logger.info("使用REache putObject");
     }
 
     public Object getObject(Object o) {
-        l.info("使用REache getObject");
+        logger.info("使用REache getObject");
         return o;
     }
 
     public Object removeObject(Object o) {
-        l.info("使用REache removeObject");
+        logger.info("使用REache removeObject");
         return null;
     }
 
     public void clear() {
-        l.info("使用REache clear");
+        logger.info("使用REache clear");
     }
 
     public int getSize() {
-        l.info("使用REache getSize");
+        logger.info("使用REache getSize");
         return 0;
     }
 
     public ReadWriteLock getReadWriteLock() {
-        l.info("使用REache getReadWriteLock");
+        logger.info("使用REache getReadWriteLock");
         return null;
     }
 }

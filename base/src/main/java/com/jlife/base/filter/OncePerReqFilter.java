@@ -2,10 +2,15 @@ package com.jlife.base.filter;
 
 
 import com.jlife.base.util.StringUtils;
+import com.jlife.base.web.Servlets;
 import org.apache.shiro.web.servlet.OncePerRequestFilter;
+import org.slf4j.Logger;
 
-import javax.servlet.*;
-
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -15,29 +20,31 @@ import java.io.IOException;
  */
 public class OncePerReqFilter extends OncePerRequestFilter {
 
+    private Logger logger = org.slf4j.LoggerFactory.getLogger(getClass());
 
     @Override
     protected void doFilterInternal(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-        System.out.println("InitFilter开始--------");
+
+        logger.debug("InitFilter开始-----{}", Servlets.getRequest().getRequestURI());
 
         // 如果url中有语言属性则设置
-        String lang=request.getParameter("lang");
+        String lang = request.getParameter("lang");
         if (!StringUtils.isEmpty(lang)) {
-            // Mvcs.setLocalizationKey(lang);
-            //  servletRequest.setAttribute("lang", lang);
-        }else{
-            // Mvcs.getLocalizationKey()  1.r.56 版本是null,所以要做两次判断, 1.r.57已修复为默认值 Nutz:Fix issue 1072
-            // lang=Strings.isBlank(Mvcs.getLocalizationKey())?Mvcs.getDefaultLocalizationKey():Mvcs.getLocalizationKey();
-            lang="zh_CN";
+
+        } else {
+
+            lang = "zh_CN";
         }
         request.setAttribute("lang", lang);
-        request.setAttribute("AppName","xx");
+        request.setAttribute("AppName", "xx");
 
         chain.doFilter(request, response);
-        System.out.println("InitFilter结束--------");
+        logger.debug("InitFilter结束--------{}",Servlets.getRequest().getRequestURI());
     }
 
     public void destroy() {
-        System.out.println("InitFilter销毁--------");
+
+        logger.debug("InitFilter销毁--------");
+
     }
 }

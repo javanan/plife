@@ -1,7 +1,11 @@
 package com.jlife.sys.dao;
 
-import com.jlife.sys.pojo.SysUser;
+import com.jlife.sys.entity.SysUser;
+import com.jlife.sys.persistence.CrudDao;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created by chenjianan on 2016/12/14-20:11.
@@ -9,14 +13,25 @@ import org.springframework.stereotype.Component;
  * Describe: 系统用户dao
  */
 @Component
-public interface SysUserDao {
+public interface SysUserDao extends CrudDao<SysUser> {
 
-    public SysUser fetch(Long id);
 
     /**
-     * 根据登录名称查询用户
-     * @param sysUser
+     * 根据用户登录名查找用户
+     * @param loginName
+     * @param delFlag
      * @return
      */
-    public SysUser getByLoginName(SysUser sysUser);
+    SysUser getByLoginName(@Param("loginName") String loginName, @Param("delFlag") String delFlag);
+
+    /**
+     * 根据部门id获取该部门的所有用户
+     * @param sysOfficeId
+     * @param delFlag
+     * @return
+     */
+
+    List<SysUser> getSysUserBySysOfficeId(@Param("sysOfficeId") String sysOfficeId, @Param("delFlag") String delFlag);
+
+    Long findAllCount();
 }

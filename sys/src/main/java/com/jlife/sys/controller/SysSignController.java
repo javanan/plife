@@ -4,8 +4,8 @@ import com.jlife.base.config.Global;
 import com.jlife.base.session.SessionDAO;
 import com.jlife.base.util.CookieUtils;
 import com.jlife.base.web.BaseController;
+import com.jlife.sys.security.SysUserUtils;
 import com.jlife.sys.security.SystemAuthorizingRealm;
-import com.jlife.sys.security.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +34,7 @@ public class SysSignController extends BaseController{
      */
     @RequestMapping(value = "sys/login", method = RequestMethod.GET)
     public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
-        SystemAuthorizingRealm.Principal principal = UserUtils.getPrincipal();
+        SystemAuthorizingRealm.Principal principal = SysUserUtils.getPrincipal();
 
 
         if (logger.isDebugEnabled()){
@@ -42,7 +42,7 @@ public class SysSignController extends BaseController{
         }
 
         // 如果已登录，再次访问主页，则退出原账号。
-        if (Global.TRUE.equals(Global.getConfig("notAllowRefreshIndex"))){
+        if (Global.YES.equals(Global.getConfig("notAllowRefreshIndex"))){
             CookieUtils.setCookie(response, "LOGINED", "false");
         }
 

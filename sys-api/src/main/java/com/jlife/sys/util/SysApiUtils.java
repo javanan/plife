@@ -11,7 +11,7 @@ import com.jlife.sys.config.SysGlobal;
  * <p>
  * Describe:
  */
-public class SysApiUtils extends JlifeUtils{
+public class SysApiUtils{
     /**
      * 生成安全的密码，生成随机的16位salt并经过1024次 sha-1 hash
      */
@@ -21,4 +21,7 @@ public class SysApiUtils extends JlifeUtils{
         byte[] hashPassword = Digests.sha1(plain.getBytes(), salt, SysGlobal.HASH_INTERATIONS);
         return Encodes.encodeHex(salt)+Encodes.encodeHex(hashPassword);
     }
+
+
+
 }

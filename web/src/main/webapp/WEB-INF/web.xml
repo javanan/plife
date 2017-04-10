@@ -29,11 +29,11 @@
     </listener>
 
     <filter>
-        <filter-name>initFilter</filter-name>
+        <filter-name>OncePerReqFilter</filter-name>
         <filter-class>com.jlife.base.filter.OncePerReqFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>initFilter</filter-name>
+        <filter-name>OncePerReqFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
@@ -65,6 +65,16 @@
     </filter>
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- SiteMesh Web-Page Layout filter-->
+    <filter>
+        <filter-name>siteMeshFilter</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>siteMeshFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 

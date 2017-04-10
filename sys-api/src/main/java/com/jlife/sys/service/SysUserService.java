@@ -1,6 +1,6 @@
 package com.jlife.sys.service;
 
-import com.jlife.sys.pojo.SysUser;
+import com.jlife.sys.entity.SysUser;
 
 /**
  * Created by chenjianan on 2016/12/13-19:46.
@@ -9,18 +9,18 @@ import com.jlife.sys.pojo.SysUser;
  */
 public interface SysUserService {
 
-
     /**
-     * 根据用户id获取用户
+     * 根据id获取用户
      * @param id
-     * @return SysUser
+     * @return
      */
-    public SysUser fetch(Long id);
+    SysUser getById(String id);
+
 
     /**
      * 根据登录名获取用户
      * @param loginName
      * @return
      */
-    public SysUser getUserByLoginName(String loginName);
+     SysUser getUserByLoginName(String loginName);
 }

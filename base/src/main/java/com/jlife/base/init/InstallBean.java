@@ -1,7 +1,8 @@
 package com.jlife.base.init;
 
-import org.apache.log4j.spi.LoggerFactory;
+
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
@@ -13,7 +14,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * 我们就可以定义一个或者多个BeanPostProcessor接口的实现。
  */
 public class InstallBean implements BeanPostProcessor {
-    private Logger logger = org.slf4j.LoggerFactory.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         logger.info("对象" + beanName + "开始实例化");
         return bean;

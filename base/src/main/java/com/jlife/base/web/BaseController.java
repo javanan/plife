@@ -4,9 +4,9 @@
 package com.jlife.base.web;
 
 
+import com.jlife.base.beanvalidator.BeanValidators;
 import com.jlife.base.mapper.JsonMapper;
 import com.jlife.base.util.DateUtils;
-import com.jlife.base.beanvalidator.BeanValidators;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.slf4j.Logger;
